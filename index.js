@@ -8,7 +8,9 @@ const port = process.env.PORT;
 
 try {
     connectToMongodb();
-    app.use(cors())
+    app.use(cors({
+        origin: `http://localhost:3000`,
+    }))
     app.use(express.json()) 
     app.use("/api/user", require("./routes/auth"))
     app.use("/api/watchlist", require("./routes/watchlist"))
