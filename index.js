@@ -10,6 +10,7 @@ try {
     connectToMongodb();
     app.use(cors({
         origin: `https://crypto-tracker-frontend-indol.vercel.app`,
+        credentials: true
     }))
     app.use(express.json()) 
     app.use("/api/user", require("./routes/auth"))
