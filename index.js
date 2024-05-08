@@ -9,7 +9,7 @@ const port = process.env.PORT;
 
 connectToMongodb();
 app.use(cors({
-    origin: ["http://localhost:3000" , process.env.FRONTEND_URL],
+    origin: ["http://localhost:3000" , "https://crypto-tracker-frontend-indol.vercel.app"],
     credentials: true,
 }));
 
