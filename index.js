@@ -54,16 +54,15 @@ function setCorsHeaders(req, res, next) {
     }
 }
 
+// Apply the CORS middleware to all requests
 app.use(setCorsHeaders);
 
-try {
-    connectToMongodb();
-    app.use(express.json());
-    app.use("/api/user", require("./routes/auth"));
-    app.use("/api/watchlist", require("./routes/watchlist"));
-    app.listen(port, () => {
-        console.log("Connected to server");
-    });
-} catch (error) {
-    console.log(error);
-}
+// Parse JSON request bodies
+app.use(express.json());
+
+app.use("/api/user", require("./routes/auth"));
+app.use("/api/watchlist", require("./routes/watchlist"));
+
+app.listen(port, () => {
+    console.log("Connected to server");
+});
