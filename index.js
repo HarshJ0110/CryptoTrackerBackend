@@ -9,8 +9,8 @@ const port = process.env.PORT;
 try {
     connectToMongodb();
     app.use(cors({
-      origin: '*', // allow requests from all origins
-      credentials: true,
+        origin: ["http://localhost:3000" , process.env.FRONTEND_URL],
+        credentials: true,
     }));
 
     app.use(express.json()) 
