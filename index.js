@@ -9,8 +9,10 @@ const port = process.env.PORT;
 try {
     connectToMongodb();
     app.use(cors({
-        origin : `https://crypto-tracker-frontend-indol.vercel.app/`
-    }))
+      origin: '*', // allow requests from all origins
+      credentials: true,
+    }));
+
     app.use(express.json()) 
     app.use("/api/user", require("./routes/auth"))
     app.use("/api/watchlist", require("./routes/watchlist"))
