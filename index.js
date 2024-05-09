@@ -31,19 +31,10 @@ const watchlistRoutes = require("./routes/watchlist");
 const app = express();
 const port = process.env.PORT || 3000; 
 
-// Middleware
-app.use(cors({
-  origin: "https://crypto-tracker-frontend-indol.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  // Add other CORS options if needed
-}));
-
+connectToMongodb();
+app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
-connectToMongodb();
-
-// Routes
 app.use("/api/user", authRoutes);
 app.use("/api/watchlist", watchlistRoutes);
 
