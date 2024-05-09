@@ -34,6 +34,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(cors({
   origin: "https://crypto-tracker-frontend-indol.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   // Add other CORS options if needed
 }));
 
