@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require("../models/user")
 
 const fetchUser = async (req,res,next) => {
-    const token = req.header("token");
+    const token = req.header("Token");
     if(!token){
         res.status(401).json({error: "Please Authenticate using valid token token not present"})
     }
