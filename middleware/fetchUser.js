@@ -10,6 +10,7 @@ const fetchUser = async (req,res,next) => {
     try{
         const data = jwt.verify(token, process.env.JWT_Secret)
         req.user = await User.findById(data.user.id).select("-password");
+        console.log(req.user);
         next();
     }catch{
         res.status(401).json({error: "Please Authenticate using valid token error"})
