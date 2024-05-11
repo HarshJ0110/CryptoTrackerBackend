@@ -4,7 +4,7 @@ const User = require("../models/user")
 const fetchUser = async (req,res,next) => {
     const token = req.header("token");
     console.log(token);
-    if(!token){
+    if(token === null){
         res.status(401).json({error: "Please Authenticate using valid token token not present"})
     }
     try{
