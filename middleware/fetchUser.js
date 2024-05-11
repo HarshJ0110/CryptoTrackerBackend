@@ -12,7 +12,7 @@ const fetchUser = async (req,res,next) => {
         req.user = await User.findById(data.user.id).select("-password");
         next();
     }catch{
-        res.status(401).json({error: "Please Authenticate using valid token"})
+        res.status(401).json({error: "Please Authenticate using valid token error"})
     }
 }
 module.exports = fetchUser
