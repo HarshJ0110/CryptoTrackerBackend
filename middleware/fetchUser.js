@@ -11,6 +11,7 @@ const fetchUser = async (req,res,next) => {
     try{
         console.log("in try");
         const data = jwt.verify(token, process.env.JWT_Secret)
+        console.log(data);
         req.user = await User.findById(data.user.id).select("-password");
         console.log(req.user);
         next();
