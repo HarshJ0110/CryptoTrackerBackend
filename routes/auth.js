@@ -27,7 +27,7 @@ router.post("/createuser", async (req, res) => {
                 id: user.id,
             }
         }
-        const authtoken = jwt.sign(data, process.env.JWT_SECRET);
+        const authtoken = jwt.sign(data, process.env.JWT_SECRET || "REGDFSH64GERGERGF");
         res.status(200).json({ sucess: true, authtoken });
     } catch (error) {
         res.status(500).json("Internal server error");
@@ -53,7 +53,7 @@ router.post("/login", async (req, res) => {
                 id: user.id
             }
         }
-        const authtoken = jwt.sign(data, process.env.JWT_SECRET);
+        const authtoken = jwt.sign(data, process.env.JWT_SECRET || "REGDFSH64GERGERGF");
         const name = user.name;
         res.status(200).json({ name, sucess: true, authtoken });
 
